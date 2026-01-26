@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sign up for Facebook</title>
+    <link rel="stylesheet" href="facebook.css">
+</head>
+<body>
+
+    <div class="fb-logo">Facebook</div>
+
+    <div class="container">
+        <h2 class="header-main">Create a new account</h2>
+        <p class="header-sub">It's quick and easy.</p>
+        
+        <form id="signupform2">
+            
+            <div class="input-group row-split">
+                <input type="text" id="firstname" placeholder="First name" required>
+                <input type="text" id="surname" placeholder="Surname" required>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="contact" placeholder="Mobile number or email address" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" placeholder="New password" required>
+            </div>
+
+            <div class="input-group">
+                <label class="label-small">Date of birth <i>?</i></label>
+                <div class="dob-row">
+                    <select id="day">
+                        <option value="0">Day</option>
+                        <script>
+                          for(let i=1; i<=31; i++){
+                            document.write(`<option value="${i}">${i}</option>`);
+                          }
+                        </script>
+                    </select>
+                    
+                    <select id="month">
+                        <option value="0">Month</option>
+                        <option value="1">Jan</option>
+                        <option value="2">Feb</option>
+                        <option value="3">Mar</option>
+                        <option value="4">Apr</option>
+                        <option value="5">May</option>
+                        <option value="6">Jun</option>
+                        <option value="7">Jul</option>
+                        <option value="8">Aug</option>
+                        <option value="9">Sep</option>
+                        <option value="10">Oct</option>
+                        <option value="11">Nov</option>
+                        <option value="12">Dec</option>
+                    </select>
+
+                    <select id="year">
+                        <option value="0">Year</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2000">2000</option>
+                        <option value="1990">1990</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label class="label-small">Gender <i>?</i></label>
+                <div class="gender-row">
+                    <div class="gender-box">
+                        <label>
+                            Female
+                            <input type="radio" name="gender" value="female">
+                        </label>
+                    </div>
+                    <div class="gender-box">
+                        <label>
+                            Male
+                            <input type="radio" name="gender" value="male">
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit">Sign Up</button>
+            </div>
+        </form>
+    </div>
+
+<script>
+document.getElementById('signupform2').addEventListener('submit', function(event) {
+    event.preventDefault(); // stop form submission
+
+    let errorMessage = "";
+    let isValid = true;
+
+    document.querySelectorAll('.error-border')
+        .forEach(el => el.classList.remove('error-border'));
+
+    let fname = document.getElementById('firstname');
+    let sname = document.getElementById('surname');
+    let contact = document.getElementById('contact');
+    let pwd = document.getElementById('password');
+    let day = document.getElementById('day');
+    let month = document.getElementById('month');
+    let year = document.getElementById('year');
+
+    if (fname.value.trim() === "") {
+        errorMessage += "First Name is required.\n";
+        fname.classList.add('error-border');
+        isValid = false;
+    }
+
+    if (sname.value.trim() === "") {
+        errorMessage += "Surname is required.\n";
+        sname.classList.add('error-border');
+        isValid = false;
+    }
+
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let phonePattern = /^[0-9]{10,15}$/;
+
+    if (!emailPattern.test(contact.value.trim()) &&
+        !phonePattern.test(contact.value.trim())) {
+        errorMessage += "Enter valid email or mobile number.\n";
+        contact.classList.add('error-border');
+        isValid = false;
+    }
+
+    if (pwd.value.length < 6) {
+        errorMessage += "Password must be at least 6 characters.\n";
+        pwd.classList.add('error-border');
+        isValid = false;
+    }
+
+    if (day.value === "0" || month.value === "0" || year.value === "0") {
+        errorMessage += "Select complete Date of Birth.\n";
+        isValid = false;
+    }
+
+    let genderSelected = document.querySelector('input[name="gender"]:checked');
+    if (!genderSelected) {
+        errorMessage += "Please select gender.\n";
+        isValid = false;
+    }
+
+    if (!isValid) {
+        alert(errorMessage);
+    } else {
+        alert("Form submitted successfully (frontend only).");
+        this.reset();
+    }
+});
+</script>
+
+</body>
+</html>

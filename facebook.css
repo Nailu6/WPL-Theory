@@ -1,0 +1,157 @@
+/* FILE: common.css */
+
+body {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    color: #1c1e21;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+/* Facebook Logo */
+.fb-logo {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    color: #1877f2;
+    margin: 20px 0 10px;
+    letter-spacing: -2px;
+}
+
+/* Main Card */
+.container {
+    width: 432px;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1),
+                0 8px 16px rgba(0,0,0,.1);
+    text-align: center;
+}
+
+/* Headings */
+.header-main {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.header-sub {
+    font-size: 15px;
+    color: #606770;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dadde1;
+    padding-bottom: 15px;
+}
+
+/* Form Groups */
+.input-group {
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+/* Name Fields */
+.row-split {
+    display: flex;
+    gap: 10px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccd0d5;
+    border-radius: 5px;
+    font-size: 15px;
+    background: #f5f6f7;
+    box-sizing: border-box;
+}
+
+/* Labels */
+.label-small {
+    font-size: 12px;
+    color: #606770;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.label-small i {
+    font-style: normal;
+    background: #606770;
+    color: #fff;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+/* DOB */
+.dob-row {
+    display: flex;
+    gap: 10px;
+}
+
+select {
+    width: 33.33%;
+    padding: 8px;
+    border: 1px solid #ccd0d5;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #fff;
+}
+
+/* Gender */
+.gender-row {
+    display: flex;
+    gap: 10px;
+}
+
+.gender-box {
+    width: 50%;
+    border: 1px solid #ccd0d5;
+    border-radius: 4px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    cursor: pointer;
+}
+
+.gender-box label {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* Submit Button */
+button {
+    background-color: #42b72a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    width: 200px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #36a420;
+}
+
+/* Error Styling */
+.error-border {
+    border: 1px solid #b91c1c !important;
+    background-color: #fff0f0;
+}
