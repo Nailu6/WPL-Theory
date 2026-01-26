@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      box-sizing: content-box;
+      font-family: sans-serif;
+      background-color: #d3d3d3;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 90vh;
+    }
+
+    .box {
+      background-color: #e4e9f7;
+      display: flex;
+      padding: 30px;
+      flex-direction: column;
+      border-radius: 25px;
+      box-shadow: 0 4px 8px #aab3c5;
+      outline-color: #d3d3d3;
+      outline-style: outset;
+    }
+
+    .form-box {
+      width: 500px;
+      margin: auto;
+    }
+
+    .form-box header {
+      font-size: 30px;
+      font-weight: 550;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #e6e6e6;
+      margin-bottom: 15px;
+    }
+
+    .form-box form .field {
+      display: flex;
+      margin-bottom: 13px;
+      flex-direction: column;
+    }
+
+    .form-box form input[type="text"] {
+      height: 40px;
+      width: 90%;
+      font-size: 16px;
+      padding: 0 13px;
+      border-radius: 7px;
+      border: 2px solid #ccc;
+    }
+
+    .btn {
+      height: 30px;
+      background: #4685f3;
+      border: 0;
+      color: #ffe;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      opacity: 0.8;
+    }
+
+    .links {
+      margin-bottom: auto;
+    }
+
+    .submit {
+      width: 100%;
+    }
+
+    #loginMessage {
+      margin-top: 15px;
+      font-size: 16px;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box form-box">
+      <header>Login</header>
+      <form id="loginForm">
+        <div class="field input">
+          <label for="Username">Username</label>
+          <input type="text" name="Username" id="Username" required>
+        </div>
+
+        <div class="field input">
+          <label for="Password">Password</label>
+          <input type="text" name="Password" id="Password" required>
+        </div>
+
+        <div class="field">
+          <input type="submit" class="btn" name="submit" value="Login">
+        </div>
+
+        <div class="links">
+          Don't have an account? <a href="register.html">Sign up now</a>
+        </div>
+      </form>
+
+      <div id="loginMessage"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      var username = document.getElementById("Username").value;
+      var password = document.getElementById("Password").value;
+      var message = document.getElementById("loginMessage");
+
+      (username && password && (message.textContent = "Login successful!")) ||
+      (message.textContent = "Please enter both username and password.");
+    });
+  </script>
+</body>
+</html>
